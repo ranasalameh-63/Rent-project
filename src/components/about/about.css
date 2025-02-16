@@ -1,0 +1,22 @@
+.step {
+    border-radius: 16px;
+}
+
+.test-bg {
+    background-color: red;
+}
+
+
+@media (max-width: 768px) {
+    .arrow {
+        display: hidden;
+    }
+
+    .image-w {
+        width: 100px;
+    }
+
+}
+.colorss{
+    color:black;
+}

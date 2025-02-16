@@ -1,0 +1,36 @@
+{
+    "area": "1000",
+    "bedrooms": "25",
+    "category": "Castles",
+    "date": "2025-02-21",
+    "deleted": false,
+    "depositRequest": "yes",
+    "depositResponse": "Your deposit request has been approved",
+    "description": "The castles were built between the 7th century and 8th century, under the caliphs of the Umayyad dynasty. The majority of the castles lie on the trade routes.",
+    "location": "Madaba",
+    "neighborhood": "Granada",
+    "photos": [
+      "https://travcotravel.jo/uploads/tours/gallery/192/1.jpg",
+      "https://select.jo/wp-content/uploads/2019/07/desert-castle.jpg.pagespeed.ce_.JX75Umh0NR.jpg"
+    ],
+    "price": "999",
+    "seller": "QcrqbM22yJgQygXM2J6tXouU11",
+    "status": "approved",
+    "title": "Desert Castle",
+    "bookedDate": [
+      {
+        "startDate": "2025-03-01",
+        "endDate": "2025-03-05"
+      },
+      {
+        "startDate": "2025-04-10",
+        "endDate": "2025-04-15"
+      }
+    ],
+    "blockedDates": [
+      "2025-02-25",
+      "2025-03-10",
+      "2025-04-20"
+    ]
+  }
+  

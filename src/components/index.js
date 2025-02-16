@@ -1,0 +1,17 @@
+export { default as Home } from "./home/Home.jsx";
+export { default as Navbar } from "./navBar/NavBar.jsx";
+export { default as Login } from "./login/Loign.jsx";
+export { default as Register } from "./register/Register.jsx";
+export { default as AdminDash } from "./admin_dash/AdminDash.jsx";
+export { default as SellerDash } from "./seller_dash/SellerDash.jsx";
+export { default as Rentals } from "./rentals/Rentals.jsx";
+export { default as PropertyDetails } from "./propertyDetails/PropertyDetails.jsx";
+export { default as Checkout } from "./checkout/Checkout.jsx";
+export { default as Wishlist } from "./Wishlist/Wishlist.jsx";
+export { default as UserProfile } from "./userProfile/UserProfile.jsx";
+export { default as Footer } from "./footer/Footer.jsx";
+export { default as About } from "./about/About.jsx";
+export { default as Contact } from "./contact/Contact.jsx";
+export { default as PageNotFound } from "./pageNotFound/PageNotFound.jsx";
+export { default as BecomeOwnerProfile } from "./propertyDetails/BecomeOwner.jsx";
+export {default as SellerObjection} from './admin_dash/SellerObjection.jsx';
