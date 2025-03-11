@@ -79,7 +79,7 @@ export default function NewRentals() {
                       {rental.price} JD
                     </span>
 
-                    <span className="text-gray-500">/month</span>
+                    <span className="text-gray-500">/night</span>
                   </div>
 
                   <div className="flex gap-3 text-gray-500">

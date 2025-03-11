@@ -2,9 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData, logoutUser, fetchUserNotifications } from "../../redux/authSlice";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,12 +12,12 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { user, notifications } = useSelector(state => state.auth);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user?.uid) {
       dispatch(fetchUserData());
-      dispatch(fetchUserNotifications(user.uid)); // Fetch notifications
+      dispatch(fetchUserNotifications(user.uid));
     }
   }, [dispatch, user?.uid]);
 
@@ -40,7 +39,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logoutUser());
     setIsMenuOpen(false);
-    navigate('/')
+    navigate('/');
   };
 
   const getNavItems = () => {
@@ -83,6 +82,16 @@ const Navbar = () => {
             </span>
           </Link>
 
+          {/* Hamburger Menu Icon (Mobile) */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+            >
+              {isMenuOpen ? <FaTimes className="h-6 w-6" /> : <FaBars className="h-6 w-6" />}
+            </button>
+          </div>
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <div className="flex space-x-4 lg:space-x-6">
@@ -105,7 +114,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Notifications & User Section */}
+          {/* Notifications & User Section (Desktop) */}
           <div className="hidden md:flex items-center space-x-4">
 
             {/* Notifications */}
@@ -133,13 +142,13 @@ const Navbar = () => {
                         notifications.map((notif, index) => (
                           <div key={index} className="p-2 border-b last:border-none text-sm text-gray-700">
                             <p><strong>Product:</strong> {notif.productName || "Loading..."}</p>
-                            <p>{notif.message}</p>
+                            <p className="mb-3">{notif.message}</p>
                             {notif.status === "approve" && (
                               <Link
                                 to="/checkout"
-                                className="mt-2 px-3 py-1 text-sm bg-[#A59D84] text-white rounded-md hover:bg-[#C1BAA1] transition"
+                                className="m-0 px-1 py-1 text-sm bg-[#A59D84] text-white rounded-md hover:bg-[#C1BAA1] transition"
                               >
-                                Checkout
+                                Payment
                               </Link>
                             )}
                           </div>
@@ -185,6 +194,56 @@ const Navbar = () => {
             )}
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white/95 absolute top-16 w-full border-b border-gray-100 shadow-sm">
+            <div className="px-4 py-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`block py-2 px-1 ${location.pathname === item.path
+                    ? "text-[#A59D84] font-medium"
+                    : "text-gray-600 hover:text-gray-900"
+                    } transition-colors duration-200`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              {user && (
+                <>
+                  <Link
+                    to="/Wishlist"
+                    className="block py-2 px-1 text-gray-600 hover:text-gray-900"
+                  >
+                    Wishlist
+                  </Link>
+                  <Link
+                    to="/UserProfile"
+                    className="block py-2 px-1 text-gray-600 hover:text-gray-900"
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="block py-2 px-1 text-gray-600 hover:text-gray-900"
+                  >
+                    Logout
+                  </button>
+                </>
+              )}
+              {!user && (
+                <Link
+                  to="/Login"
+                  className="block py-2 px-1 text-gray-600 hover:text-gray-900"
+                >
+                  Login
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

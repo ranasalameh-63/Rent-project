@@ -169,19 +169,6 @@ const Rentals = () => {
             Next
           </button>
         </div>
-
-
-        {/* Call to Action */}
-        <div className="text-[#000] py-12 text-center">
-          <h2 className="text-3xl font-bold">Become a Host</h2>
-          <p className="mt-2 text-lg">Earn money by renting out your villa to travelers.</p>
-          <Link to="/BecomeOwnerProfile">
-            <button className="cursor-pointer text-white mt-4 bg-[#A59D84] px-6 py-3 rounded-lg font-bold transition">
-              List Your Villa
-            </button>
-          </Link>
-        </div>
-
       </div>
       <Footer />
     </>

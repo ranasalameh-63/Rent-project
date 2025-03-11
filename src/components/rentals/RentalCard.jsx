@@ -86,7 +86,7 @@ const RentalCard = ({ rental }) => {
                 {/* Content */}
                 <div className="p-4 relative pb-3">
                     <h3 className="text-lg font-semibold text-gray-800">{rental.location}</h3>
-                    <p className="text-gray-500">{rental.date || "Date not available"}</p>
+                    <p className="text-gray-500">Available at: {rental.date || "Date not available"}</p>
 
                     {/* Price */}
                     <p className="text-lg font-bold text-gray-900 mt-2">
